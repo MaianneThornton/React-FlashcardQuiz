@@ -6,7 +6,11 @@ export default function Flashcard({ flashcard }) {
 
     return (
         // toggle flip on click from flip to not flip
-        <div onClick={() => setFlip(!flip)}>
+        <div
+            // adds a class of card to each card - and -
+            // ternary: if flip is true add the class of flip. otherwise add an empty className
+            className={`card ${flip ? 'flip' : ''}`}
+            onClick={() => setFlip(!flip)}>
             {/* ternary: if flip is true return answer otherwise return question */}
             {flip ? flashcard.answer : flashcard.question}
         </div>
