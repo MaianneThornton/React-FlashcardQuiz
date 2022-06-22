@@ -13,7 +13,7 @@ export default function Flashcard({ flashcard }) {
             onClick={() => setFlip(!flip)}>
             {/* ternary: if flip is true return answer otherwise return question */}
 
-            <div className='front>'>
+            <div className='front'>
                 {flashcard.question}
                 <div className='flashcard-options'>
                     {flashcard.options.map(option => {
