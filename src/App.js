@@ -13,15 +13,16 @@ function App() {
         setFlashcards(res.data.results.map((questionItem, index) => {
           const answer = decodeString(questionItem.correct_answer)
           const options = [
-            ...questionItem.incorrect_answers.map(a => decodeString(a))
+            ...questionItem.incorrect_answers.map(a => decodeString(a)),
+            answer
           ]
           return {
             // so that the index is always unique
-            id: `${index} -${Date.now()}`,
+            id: `${index}-${Date.now()}`,
             question: decodeString(questionItem.question),
             answer: answer,
             // 50% of the time a positive #, 50% a negative #
-            options: options.sort(() => Math.random() - .5)
+            options: options.sort(() => Math.random() - .5),
           }
         }))
         console.log(res.data);
